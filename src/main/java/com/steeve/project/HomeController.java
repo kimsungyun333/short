@@ -57,14 +57,17 @@ public class HomeController {
 	    public SalesUserInfo postJeunFront(HttpServletRequest request, HttpSession session){
 	        SalesUserInfo user= new SalesUserInfo();
 	    	
-	        user.setName("ÄÚµåÀÌÀ½");
-	    	user.setRegion("°­³²");
+	        user.setName("ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½");
+	    	user.setRegion("ï¿½ï¿½ï¿½ï¿½");
 	    	
 	    	logger.info(user.getName());
 
 
 	        return user;
 	    }
-
+	@GetMapping("/salesajax")
+	public String salesjaxax(){
+		return "salesajax";
+	}
 	
 }

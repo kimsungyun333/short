@@ -9,42 +9,56 @@
     <script src="https://malsup.github.io/jquery.form.js"></script> 
     <script type="text/javascript">
     $(document).ready(function(){
-        getApi(); 
-        
          var getCookie = function(name) {
         	        var value = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
         	        return value? value[2] : null;
         	};
 
         	$("#cookieRead1").text(getCookie("salesInfo"))
-    })
+        	
+
+        	//로컬버튼
+        	  $('#local').click(function(){
+        	    	
+        	    	$.ajax({ type: "POST",
+        	  	 	  url: "/getSalesInfo.do",
+        	  	 	  dataType: "json" ,
+        	  	 	  success : function(data){ 
+        	  	 	   //alert(JSON.stringify(data))	   
+        	  	 	   window.localStorage.setItem('salesInfo',JSON.stringify(data))
+        		 	   //window.localStorage.setItem('salesUserInfo',JSON.stringify(data.salesUserInfo))
+        		 	   //window.localStorage.setItem('salesProduct',JSON.stringify(data.salesProduct))
+        	  	 	alert("로컬스토리지 정상 저장");
+        	  	 	  },error: function(){
+        	             alert("error");
+        	  	 	  }
+        	          });
+        	    	
+        	    	
+        	    });
+        	   
+        	//세션 버튼
+        	    $('#session').click(function(){
+        	
+        	    	$.ajax({ type: "POST",
+          	  	 	  url: "/getSalesInfo.do",
+          	  	 	  dataType: "json" ,
+          	  	 	  success : function(data){ 
+          	  	 	   //alert(JSON.stringify(data))	   
+          	  	 	   window.sessionStorage.setItem('salesInfo',JSON.stringify(data))
+          		 	   //window.localStorage.setItem('salesUserInfo',JSON.stringify(data.salesUserInfo))
+          		 	   //window.localStorage.setItem('salesProduct',JSON.stringify(data.salesProduct))
+          		 	   alert("세션스토리지 정상 저장");
+          	  	 	  },error: function(){
+          	             alert("error");
+          	  	 	  }
+          	          })
+        	    });
+    });
     
-  function getApi() {
  
-    	
-    $.ajax({ type: "POST",
-	    	 	  url: "/getSalesInfo.do",
-	    	 	  dataType: "json" ,
-	    	 	  success : function(data){
-	    	 		
-	    	 	  
-	    	 	   //alert(data)
-	    	 	   window.localStorage.setItem('salesInfo',JSON.stringify(data))
-	    	 	   //window.localStorage.setItem('salesUserInfo',JSON.stringify(data.salesUserInfo))
-	    	 	   //window.localStorage.setItem('salesProduct',JSON.stringify(data.salesProduct))
-	    	 	   
-	    	 	   window.sessionStorage.setItem('salesInfo',JSON.stringify(data))
-	    	 	   //window.sessionStorage.setItem('salesUserInfo',JSON.stringify(data.salesUserInfo))
-	    	 	   //window.sessionStorage.setItem('salesProduct',JSON.stringify(data.salesProduct))
-	    	 	   
-	    	 	   
-	    	 	   
-	    	 	
-	    	 	  },error: function(){
-                   alert("error");
-	    	 	  }
-                });
-    }
+    
+   
   //  참고 : window.localStorage.getItem('name')<br>
   //  window.localStorage.getItem('region') <br>
    // window.localStorage.getItem('SalesUser') <br>
@@ -54,7 +68,9 @@
 
 </head>
 <body>
-자동으로 세션스토리지와 로컬스토리지에 값 저장 <br>
+<button type='button' id='local'>로컬 스토리지 저장</button><br>
+
+<button type='button' id='session'>세션 스토리지 저장</button>
 <br><br>
 
 

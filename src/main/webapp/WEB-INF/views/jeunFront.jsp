@@ -1,16 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://malsup.github.io/jquery.form.js"></script> 
     <script type="text/javascript">
     $(document).ready(function(){
         getApi(); 
-           
+        
+        Â varÂ getCookieÂ =Â function(name)Â {
+        	Â Â Â Â Â Â Â Â varÂ valueÂ =Â document.cookie.match('(^|;)Â ?'Â +Â nameÂ +Â '=([^;]*)(;|$)');
+        	Â Â Â Â Â Â Â Â returnÂ value?Â value[2]Â :Â null;
+        	};
+
+        	$("#cookieRead1").text(getCookie("salesInfo"))
+        	$("#cookieRead2").text(getCookie("salesUserInfo"))
+           $("#cookieRead2").text(getCookie("salesProduct"))
     })
     
   function getApi() {
@@ -39,7 +47,7 @@
 	    	 	  }
                 });
     }
-  //  Âü°í : window.localStorage.getItem('name')<br>
+  //  ì°¸ê³  : window.localStorage.getItem('name')<br>
   //  window.localStorage.getItem('region') <br>
    // window.localStorage.getItem('SalesUser') <br>
   
@@ -48,14 +56,24 @@
 
 </head>
 <body>
-ÀÚµ¿À¸·Î ¼¼¼Ç½ºÅä¸®Áö¿Í ·ÎÄÃ½ºÅä¸®Áö¿¡ °ª ÀúÀå <br>
+ìë™ìœ¼ë¡œ ì„¸ì…˜ìŠ¤í† ë¦¬ì§€ì™€ ë¡œì»¬ìŠ¤í† ë¦¬ì§€ì— ê°’ ì €ì¥ <br>
 <br><br>
 
 
-ÄíÅ° ÀĞ±â:
-<div id='cookieRead'>
+ì¿ í‚¤ ì½ê¸°:
+<div id='cookieRead1'>
 
 </div>
+<br>
+<div id='cookieRead2'>
+
+</div>
+<br>
+
+<div id='cookieRead3'>
+
+</div>
+
 
 
 

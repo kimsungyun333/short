@@ -17,8 +17,6 @@
         	};
 
         	$("#cookieRead1").text(getCookie("salesInfo"))
-        	$("#cookieRead2").text(getCookie("salesUserInfo"))
-           $("#cookieRead2").text(getCookie("salesProduct"))
     })
     
   function getApi() {
@@ -32,12 +30,12 @@
 	    	 	  
 	    	 	   //alert(data)
 	    	 	   window.localStorage.setItem('salesInfo',JSON.stringify(data))
-	    	 	   window.localStorage.setItem('salesUserInfo',JSON.stringify(data.salesUserInfo))
-	    	 	   window.localStorage.setItem('salesProduct',JSON.stringify(data.salesProduct))
+	    	 	   //window.localStorage.setItem('salesUserInfo',JSON.stringify(data.salesUserInfo))
+	    	 	   //window.localStorage.setItem('salesProduct',JSON.stringify(data.salesProduct))
 	    	 	   
 	    	 	   window.sessionStorage.setItem('salesInfo',JSON.stringify(data))
-	    	 	   window.sessionStorage.setItem('salesUserInfo',JSON.stringify(data.salesUserInfo))
-	    	 	   window.sessionStorage.setItem('salesProduct',JSON.stringify(data.salesProduct))
+	    	 	   //window.sessionStorage.setItem('salesUserInfo',JSON.stringify(data.salesUserInfo))
+	    	 	   //window.sessionStorage.setItem('salesProduct',JSON.stringify(data.salesProduct))
 	    	 	   
 	    	 	   
 	    	 	   
@@ -64,15 +62,7 @@
 <div id='cookieRead1'>
 
 </div>
-<br>
-<div id='cookieRead2'>
 
-</div>
-<br>
-
-<div id='cookieRead3'>
-
-</div>
 
 
 
